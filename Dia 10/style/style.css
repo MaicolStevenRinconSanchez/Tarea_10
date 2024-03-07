@@ -1,0 +1,244 @@
+body {
+    background-image: url('http://127.0.0.1:5500/image/fondoPaisaje.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+}
+div#mensaje{
+    width: 15vw;
+    height: 25vh;
+    position: absolute;
+    top: 35vw;
+    left: 42vw;
+    
+    /* Firefox */
+    -moz-animation-name: conteo;
+    -moz-animation-duration: 5s;
+    -moz-animation-delay: 0s;
+    -moz-animation-fill-mode: both;
+
+    /* Chrome / Safari */
+    -webkit-animation-name: conteo;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+
+    /* Opera */
+    -o-animation-name: conteo;
+    -o-animation-duration: 5s;
+    -o-animation-delay: 0s;
+    -o-animation-fill-mode: both;
+
+    /* Default */
+    animation-name: conteo;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    animation-fill-mode: both;
+}
+div#lluvia{
+    visibility: hidden;
+    width: 494px;
+    height: 505px;
+    background: url('http://127.0.0.1:5500/image/lluvia.png') no-repeat center;
+    position: absolute;
+    top: 50vh;
+    animation-name: llueve;
+    animation-duration: 5s;
+    animation-delay: 9s;
+    animation-iteration-count: 2;
+    animation-timing-function: ease;
+    animation-direction: normal;
+}
+div#lluvia_larga{
+    visibility: hidden;
+    width: 494px;
+    height: 505px;
+    background: url('http://127.0.0.1:5500/image/lluvia_larga.png') no-repeat center;
+    position: absolute;
+    top: 15vh;
+    animation-name: lluvia;
+    animation-duration: 5s;
+    animation-delay: 9s;
+    animation-timing-function: ease;
+    animation-direction: normal;
+    animation-iteration-count: 2;
+}
+div#sol {
+    
+    background-image: url(http://127.0.0.1:5500/image/sol.png);
+    position: absolute;
+    width: 25vw;
+    height: 25vh;
+    background-repeat: no-repeat;
+    z-index: 2;
+    left: 0;
+    transform: translatex(75vw);
+    top:3vh;
+    animation-name: sol;
+    animation-duration: 14s;
+    animation-delay: 7s;
+    animation-timing-function: ease;
+    animation-direction: normal;
+}
+
+
+
+div#Nube {
+    position: absolute;
+    background-image: url('http://127.0.0.1:5500/image/nube.png');    
+    width: 24vw;
+    height: 35vh;
+    background-repeat: no-repeat;
+    z-index: 2;
+    top: 1vh;
+    transform: translatex(-29vw);
+
+    animation-name: nube;
+    animation-duration: 14s;
+    animation-delay: 8s;
+    animation-timing-function: ease;
+    animation-direction: normal;
+    
+}
+
+div#flor {
+    visibility: hidden;
+    width: 30vw;
+    height: 30vh;
+    background: url('http://127.0.0.1:5500/image/flor.png') no-repeat center;
+    position: absolute;
+    bottom: 5vw;
+    left: 60vh;
+    animation-name: sale-flor;
+    animation-duration: 8s;
+    animation-delay: 21s;
+    transition: height 3s ease-in-out;
+    animation-fill-mode: both;
+}
+@keyframes llueve {
+    0% {
+        visibility: visible;
+        height: 0;
+    }
+    75% {
+        height: 200vh;
+        visibility: hidden;
+        
+    }
+}
+
+
+@keyframes lluvia{
+    0%{
+        visibility: visible;
+        height: 0;
+    }
+    55%{
+        height: 400vh;
+        visibility: hidden;
+        
+    }
+}
+
+
+@keyframes conteo {
+    from {
+        background: url('http://127.0.0.1:5500/image/mensaje_1.png') no-repeat top;
+        
+    }
+    30%{
+        background: url('http://127.0.0.1:5500/image/mensaje_2.png') no-repeat top;
+    }
+    60%{
+        background: url('http://127.0.0.1:5500/image/mensaje_3.png') no-repeat top;
+    }
+    90% {
+        background: url('http://127.0.0.1:5500/image/mensaje_4.png') no-repeat top;
+    }
+    to {
+        display: none;
+    }
+
+}
+@keyframes nube {
+    0%, 25% {
+      left: 10%; 
+    }
+    10%, 25% {
+        left: 70%; 
+    } 
+    55%, 60% {
+      left: 70%; 
+    }
+    70%,75%{
+        left: 70%;
+    }
+    75%, 100% {
+        left: 133%; 
+    }
+    
+    60% {
+      animation-delay: 5s; 
+    }
+    
+  }
+
+@keyframes sol {
+    0%{
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0.8; 
+    }
+    50%,75%{
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0.4; 
+    }
+}
+@keyframes sale-flor {
+    0% {
+        visibility: visible;
+        height: 0;
+    }
+    100% {
+        height: 50%;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Modificaciones específicas para dispositivos más pequeños */
+    body {
+        background-size: contain;
+    }
+
+    div#mensaje {
+        width: 40vw; /* Modificado para ser más responsivo */
+        height: 20vh; /* Modificado para ser más responsivo */
+        top: 20vw; /* Modificado para ser más responsivo */
+        left: 30vw; /* Modificado para ser más responsivo */
+    }
+
+    div#lluvia,
+    div#lluvia_larga,
+    div#sol,
+    div#nube,
+    div#flor {
+        width: 70vw; /* Modificado para ser más responsivo */
+        height: auto; /* Permitir altura automática para adaptarse mejor en dispositivos más pequeños */
+        max-height: 70vh; /* Establecer max-height */
+    }
+}
